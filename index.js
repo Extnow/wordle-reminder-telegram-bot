@@ -4,14 +4,16 @@ require('dotenv').config();
 
 let job;
 const bot = new TelegramApi(process.env.TOKEN, { polling: true });
-const reminderHour = 8;
+const reminderHour = 6;
 const reminderMinutes = 50;
 
 bot.on('message', msg => {
   const { text, chat } = msg;
   bot.sendMessage(
     chat.id,
-    `Ссылка на новый wordle будет присылаться каждый день в ${reminderHour}:${reminderMinutes}, если хочешь сыграть сейчас, то - https://wordle.belousov.one/ 🤗`
+    `Ссылка на новый wordle будет присылаться каждый день в ${
+      reminderHour + 3
+    }:${reminderMinutes}, если хочешь сыграть сейчас, то - https://wordle.belousov.one/ 🤗`
   );
 });
 
